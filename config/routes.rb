@@ -1,21 +1,21 @@
 Rails.application.routes.draw do
   resources :collections
   resources :colors
-  resources :rooms
-  # resources :users
+  # resources :rooms
+  resources :users
 
 
 ###############users
 
-  get '/users', to: 'users#index'
+  # get '/users', to: 'users#index'
   # post '/users', to: 'users#create'
   post '/users/login', to: 'users#login'
 
 
   ################rooms
 
-  # get '/rooms', to: 'rooms#index'
-  # post '/rooms', to: 'rooms#create'
+  get '/rooms', to: 'rooms#index'
+  post '/rooms', to: 'rooms#create'
 
 
   ###############colors

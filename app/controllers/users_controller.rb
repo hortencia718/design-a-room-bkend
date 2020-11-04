@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 
-#    before_action :get_user , [:show, :edit, :update]
    
     def index 
         @users = User.all
@@ -33,14 +32,26 @@ class UsersController < ApplicationController
 
 
         def login
-           
-            user=User.find_by(email: params[:email], password: params[:password])
-            if @user
-                render json: @user
+        #    byebug
+            @user = User.find_by(email: params[:email])
+            # byebug
+            if @user.valid?
+                # && @user.authenticate(params[:password])
+                
+                # token_tag = encode_token({user_id: @user.id})
+                    render json: @user
+                # render json: {user: UserSerializer.new(@user), token: token_tag}
             else
                 render json: {error: "INCORRECT USERNAME OR PASSWORD"}, status: 422
+               
             end
         end
+
+            # def logout
+            #     reset_session
+            #     render json: {status: 200, logged_out: true}
+            # end
+       
    
 
 
@@ -49,6 +60,12 @@ class UsersController < ApplicationController
         #     redirect_to user_path(@user)
         # end
 
+
+
+            # def edit
+            #     users =user.find(params[:id])
+            #     render json: users
+            # end
 
 
             # def destroy
@@ -62,8 +79,9 @@ class UsersController < ApplicationController
 
 
         def user_params
-            params.require(:user).permit(:first_name, :last_name, :email, :password)
+            params.permit(:first_name, :last_name, :email, :password)
         end
 
 
 end
+    

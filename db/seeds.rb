@@ -16,6 +16,9 @@
 
 ################room
 room = Room.create!(user_id: hortencia.id, name:"kitchen")
+room = Room.create!(user_id: hortencia.id, name:"bedroom")
+room = Room.create!(user_id: hortencia.id, name:"livingroom")
+room = Room.create!(user_id: hortencia.id, name:"bathroom")
 
 ###############color
 color = Color.create!(hex_number: "#f542ef")
