@@ -20,21 +20,33 @@ class RoomsController < ApplicationController
 
         def create
             #  byebug
-            # room_params.permit(:user_id, :name)
             @room = Room.create(room_params)
             render json:@room
         end
 
 
-            # def update
-            #     @room.update(room_params)
+        def update
+            # byebug
+            @room=Room.find(params[:id])
+            @room.update(user_id: params[:user_id], name: params[:name])
+            render json:@room
 
-            # end
+        end
 
-            # private
-            # def get_user
-            #     @user =user.find(params[:id])
-            # end
+
+            def destroy
+                @room=Room.find(params[:id])
+                @room.destroy
+                render json:@room
+            end
+
+
+            
+
+            private
+            def get_room
+                @rooms =room.find(params[:id])
+            end
 
 
         def room_params

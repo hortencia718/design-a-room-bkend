@@ -35,12 +35,12 @@ class UsersController < ApplicationController
         #    byebug
             @user = User.find_by(email: params[:email])
             # byebug
-            if @user.valid?
-                # && @user.authenticate(params[:password])
+            if @user.valid? && @user.authenticate(params[:password])
+               
                 
-                # token_tag = encode_token({user_id: @user.id})
-                    render json: @user
-                # render json: {user: UserSerializer.new(@user), token: token_tag}
+                token_tag = encode_token({user_id: @user.id})
+                  
+                render json: {user: UserSerializer.new(@user), token: token_tag}
             else
                 render json: {error: "INCORRECT USERNAME OR PASSWORD"}, status: 422
                

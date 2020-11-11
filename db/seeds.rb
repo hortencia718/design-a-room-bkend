@@ -15,13 +15,16 @@
  hortencia = User.create!(first_name:"hortencia",last_name: "Beast", email:"hortenciaB@gmail.com", password:"abc123")
 
 ################room
-room = Room.create!(user_id: hortencia.id, name:"kitchen")
-room = Room.create!(user_id: hortencia.id, name:"bedroom")
-room = Room.create!(user_id: hortencia.id, name:"livingroom")
-room = Room.create!(user_id: hortencia.id, name:"bathroom")
+room1 = Room.create!(user_id: hortencia.id, name:"kitchen")
+room2 = Room.create!(user_id: hortencia.id, name:"bedroom")
+room3 = Room.create!(user_id: hortencia.id, name:"livingroom")
+room4 = Room.create!(user_id: hortencia.id, name:"bathroom")
 
 ###############color
-color = Color.create!(hex_number: "#f542ef")
+color1 = Color.create!(hex_number: "#f542ef")
+color2 = Color.create!(hex_number: "#6dc2c2")
+color3 = Color.create!(hex_number: "#4ac1c9")
+color4 = Color.create!(hex_number: "#3c83af")
 
 ##############collection
-collection = Collection.create!(color_id: color.id, room_id: room.id)
+collection = Collection.create!(color_id: color1.id, room_id: room1.id)
