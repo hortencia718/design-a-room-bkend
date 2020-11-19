@@ -29,9 +29,22 @@ class ColorsController < ApplicationController
         end
 
 
-        # def update
-        #     color = Color.update()
-        #     render json: @color
+        def update
+            color = Color.find(params[:id])
+            @color.update(hex_number: params[:id])
+            render json: @color
+        end
+
+        # def destroy
         # end
+
+        private
+        def get_color
+            colors=color.find(params[:id])
+        end
+
+        def colors_params
+            params.permit(:id,:hex_number)
+        end
 
 end

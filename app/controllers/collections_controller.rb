@@ -14,7 +14,7 @@ class CollectionsController < ApplicationController
 
     def create
         @collection = Collection.create!(collection_params)
-        render json: @collections 
+        render json: @collection 
     end
 
     def update
