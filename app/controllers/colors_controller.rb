@@ -6,16 +6,16 @@ class ColorsController < ApplicationController
         
     end
 
-        # def show
-        #     @color =Color.find(params[:id])
-        #     render json: @colors
-        # end
+        def show
+            @color =Color.find(params[:id])
+            render json: @color
+        end
 
 
-        # def new
-        #     @colors = Color.new
-        #     render json: @colors
-        # end
+        def new
+            @color = Color.new
+            render json: @color
+        end
 
         def create
             # byebug
